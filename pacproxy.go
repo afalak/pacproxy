@@ -38,7 +38,7 @@ func main() {
 	}
 	log.SetPrefix("")
 	log.SetFlags(log.Ldate | log.Lmicroseconds | log.Lshortfile | log.LUTC)
-	log.Printf("Starting %s v%s", Name, Version)
+	log.Printf("PacProxy>> Starting %s v%s", Name, Version)
 
 	otto := pac.NewOttoEngine(
 		pac.OttoLoader(pac.SmartLoader(fPac)),
@@ -60,7 +60,7 @@ func main() {
 			newNonProxyHTTPHandler(),
 		),
 	}
-	log.Printf("Listening on %q", fListen)
+	log.Printf("PacProxy>> Listening on %q", fListen)
 	if err := srv.ListenAndServe(); err != nil {
 		log.Panic(err)
 	}
